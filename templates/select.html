@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Select Movie{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="heading">Select Movie</h1>
+    {% if all_movies: %}
+        {% if all_movies_length != 0: %}
+            {% for movie_feature in all_movies: %}
+                  <p>
+                    <a href="{{url_for('update', movie_id=movie_feature['imdbID'])}}"> {{movie_feature['Title'] + " - " + movie_feature['Year']}}</a>
+                  </p>
+            {% endfor %}
+        {% endif %}
+    {% else: %}
+        <p>No Results Found.</p>
+        <a href="{{url_for('add_movies')}}" class="button">Go to Previous Page</a>
+    {% endif %}
+
+</div>
+{% endblock %}

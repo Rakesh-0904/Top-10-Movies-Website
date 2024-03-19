@@ -1,0 +1,16 @@
+<! DOCTYPE html>
+{% from "bootstrap5/form.html" import render_form %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Login Page</title>
+    {{bootstrap.load_css()}}
+</head>
+<body>
+    <form action="{{url_for('home')}}" method="post">
+        {{render_form(form)}}
+    </form>
+{{bootstrap.load_js()}}
+</body>
+</html>
